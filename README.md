@@ -1,56 +1,37 @@
-![](https://img.shields.io/badge/Microverse-blueviolet)
+# Awesome Books
 
-# Project Name
-
-> Description the project.
+> Simple app that adds books title and authors to a list.
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
-
-## Live Demo (if available)
-
-[Live Demo Link](https://livedemo.com)
-
-
-## Getting Started
-
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
+- CSS
+- HTML
+- Javascript
+- Git
 
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
 ### Setup
+- Download the code from the repo.
 
 ### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
-
+- Open index.html with live-server
 
 ## Authors
 
-👤 **Author1**
+👤 **Karam**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@karam084](https://github.com/karam084)
+- Twitter: [@ElarabFouad](https://twitter.com/ElarabFouad)
+- LinkedIn: [ElarabFouad](https://twitter.com/ElarabFouad)
 
-👤 **Author2**
+👤 **Henry**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@hsztan](https://github.com/hsztan)
+- Twitter: [@hsztanksi](https://twitter.com/ElarabFouad)
+- LinkedIn: [henry-nawrocki](https://linkedin.com/in/henry-nawrocki)
 
 ## 🤝 Contributing
 

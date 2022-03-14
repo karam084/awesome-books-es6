@@ -48,3 +48,15 @@ form.addEventListener('submit', (e) => {
   // Event listener to remove a book
   document.getElementById(btnRemId).addEventListener('click', removeBook);
 });
+
+// Helper to print all books on DOM
+const showAllBooks = () => {
+  const data = JSON.parse(localStorage.getItem('books'))
+  data.forEach((book, i) => {
+    const {title, author} = book
+    displayBook(author, title, i)
+  })
+}
+
+// Event listener to display all saved books
+window.addEventListener('DOMContentLoaded', showAllBooks)

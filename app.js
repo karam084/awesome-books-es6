@@ -31,8 +31,9 @@ const preserveBookData = () => {
 
 // Remove book function helper
 const removeBook = (event) => {
-  console.log('in removeBook')
-  console.log(event.target)
+  const bookIndex = event.target.dataset.index
+  data.splice(bookIndex, 1)
+  preserveBookData()
 }
 
 // Event lister to add books and save them

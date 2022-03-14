@@ -30,7 +30,6 @@ const preserveBookData = () => {
 
 // Remove book function helper
 const removeBook = (event) => {
-  event.preventDefault();
   const bookIndex = event.target.dataset.index;
   data.splice(bookIndex, 1);
   preserveBookData();
@@ -60,3 +59,10 @@ const showAllBooks = () => {
 
 // Event listener to display all saved books
 window.addEventListener('DOMContentLoaded', showAllBooks)
+// Event listener for all remove buttons aften DOMCONTENTLOADED
+window.addEventListener('DOMContentLoaded', () => {
+  const remBookBtns = document.querySelectorAll('.btn-remove')
+  if (remBookBtns.length > 0) {
+    remBookBtns.forEach(btn => btn.addEventListener('click', removeBook))
+  }
+})

@@ -36,6 +36,23 @@ const removeBook = (event) => {
   data.splice(bookIndex, 1);
   preserveBookData();
   event.target.parentElement.remove();
+
+  // replace all button data values to reset their index
+  const remBookBtns = document.querySelectorAll('.btn-remove');
+  if (remBookBtns.length > 0) {
+    remBookBtns.forEach((btn, i) => {
+      btn.dataset.index = i;
+    });
+    // addListenerToRemBtns();
+  }
+};
+
+// Add event listeners to remove buttons
+const addListenerToRemBtns = () => {
+  const remBookBtns = document.querySelectorAll('.btn-remove');
+  if (remBookBtns.length > 0) {
+    remBookBtns.forEach((btn) => btn.addEventListener('click', removeBook));
+  }
 };
 
 // Event lister to add books and save them
@@ -58,17 +75,10 @@ const showAllBooks = () => {
   });
 };
 
-const addListenerToRemBtn = () => {
-  const remBookBtns = document.querySelectorAll('.btn-remove');
-  if (remBookBtns.length > 0) {
-    remBookBtns.forEach((btn) => btn.addEventListener('click', removeBook));
-  }
-};
-
 // Event listener to display all saved books and add event listeners to each remove button
 window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('books')) {
     showAllBooks();
-    addListenerToRemBtn();
+    addListenerToRemBtns();
   }
 });

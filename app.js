@@ -57,14 +57,17 @@ const showAllBooks = () => {
   });
 };
 
-// Event listener to display all saved books
-window.addEventListener('DOMContentLoaded', () => {
-  if (localStorage.getItem('books')) showAllBooks();
-});
-// Event listener for all remove buttons aften DOMCONTENTLOADED
-window.addEventListener('DOMContentLoaded', () => {
+const addListenerToRemBtn = () => {
   const remBookBtns = document.querySelectorAll('.btn-remove');
   if (remBookBtns.length > 0) {
     remBookBtns.forEach((btn) => btn.addEventListener('click', removeBook));
+  }
+};
+
+// Event listener to display all saved books and add event listeners to each remove button
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('books')) {
+    showAllBooks();
+    addListenerToRemBtn();
   }
 });

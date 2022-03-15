@@ -5,8 +5,14 @@ const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 const bookSection = document.querySelector('.books');
 
+const preserveBookData = () => {
+  const booksData = JSON.stringify(data);
+  window.localStorage.setItem('books', booksData);
+};
+
 const addBook = (author, title) => {
   data.push({ author, title });
+  preserveBookData();
   return data.length - 1;
 };
 
@@ -23,11 +29,6 @@ const displayBook = (author, title, indx) => {
   return `btn-rem-${indx}`;
 };
 
-const preserveBookData = () => {
-  const booksData = JSON.stringify(data);
-  window.localStorage.setItem('books', booksData);
-};
-
 // Remove book function helper
 const removeBook = (event) => {
   const bookIndex = event.target.dataset.index;
@@ -42,7 +43,6 @@ form.addEventListener('submit', (e) => {
   const title = bookTitle.value;
   const author = bookAuthor.value;
   const bookIndex = addBook(title, author);
-  preserveBookData();
   const btnRemId = displayBook(title, author, bookIndex);
   // Event listener to remove a book
   document.getElementById(btnRemId).addEventListener('click', removeBook);
@@ -50,19 +50,19 @@ form.addEventListener('submit', (e) => {
 
 // Helper to print all books on DOM
 const showAllBooks = () => {
-  const data = JSON.parse(localStorage.getItem('books'))
+  data.push(...JSON.parse(localStorage.getItem('books')));
   data.forEach((book, i) => {
-    const {title, author} = book
-    displayBook(author, title, i)
-  })
-}
+    const { title, author } = book;
+    displayBook(author, title, i);
+  });
+};
 
 // Event listener to display all saved books
-window.addEventListener('DOMContentLoaded', showAllBooks)
+window.addEventListener('DOMContentLoaded', showAllBooks);
 // Event listener for all remove buttons aften DOMCONTENTLOADED
 window.addEventListener('DOMContentLoaded', () => {
-  const remBookBtns = document.querySelectorAll('.btn-remove')
+  const remBookBtns = document.querySelectorAll('.btn-remove');
   if (remBookBtns.length > 0) {
-    remBookBtns.forEach(btn => btn.addEventListener('click', removeBook))
+    remBookBtns.forEach((btn) => btn.addEventListener('click', removeBook));
   }
-})
+});

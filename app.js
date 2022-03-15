@@ -26,11 +26,9 @@ class Book {
   displayBookValues() {
     this.bookCard = `
     <div class="book-card">
-      <h2 class="book">${this.title}</h2>
-      <h3 class="author">${this.author}</h3>
+      <h2 class="book">"${this.title} by ${this.author}"</h2>
       <button class="btn-remove" id="btn-rem-${this.index}" data-index="${this.index}"
       type="button">Remove</button>
-      <hr />
     </div>
   `;
     bookSection.insertAdjacentHTML('beforeend', this.bookCard);

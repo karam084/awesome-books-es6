@@ -12,6 +12,13 @@ class Book {
     this.index = null;
   }
 
+  #displayBackground(target) {
+    console.log(this.index % 2 === 0);
+    if (this.index % 2 === 0) {
+      target.style.backgroundColor = 'grey';
+    }
+  }
+
   #preserveBookData() {
     this.booksData = JSON.stringify(data);
     window.localStorage.setItem('books', this.booksData);
@@ -24,14 +31,15 @@ class Book {
   }
 
   displayBookValues() {
-    this.bookCard = `
-    <div class="book-card">
+    this.bookCard = document.createElement('div');
+    this.bookCard.classList.add('book-card');
+    this.bookCard.innerHTML = `
       <h2 class="book">"${this.title} by ${this.author}"</h2>
       <button class="btn-remove" id="btn-rem-${this.index}" data-index="${this.index}"
       type="button">Remove</button>
-    </div>
   `;
-    bookSection.insertAdjacentHTML('beforeend', this.bookCard);
+    bookSection.appendChild(this.bookCard);
+    this.#displayBackground(this.bookCard);
   }
 
   deleteBookValues(target) {

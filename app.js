@@ -21,7 +21,8 @@ const displayBook = (author, title, indx) => {
     <div class="book-card">
       <h2 class="book">${title}</h2>
       <h3 class="author">${author}</h3>
-      <button class="btn-remove" id="btn-rem-${indx}" data-index="${indx}" type="button">Remove</button>
+      <button class="btn-remove" id="btn-rem-${indx}" data-index="${indx}"
+      type="button">Remove</button>
       <hr />
     </div>
   `;

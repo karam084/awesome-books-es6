@@ -58,7 +58,9 @@ const showAllBooks = () => {
 };
 
 // Event listener to display all saved books
-window.addEventListener('DOMContentLoaded', showAllBooks);
+window.addEventListener('DOMContentLoaded', () => {
+  if (localStorage.getItem('books')) showAllBooks();
+});
 // Event listener for all remove buttons aften DOMCONTENTLOADED
 window.addEventListener('DOMContentLoaded', () => {
   const remBookBtns = document.querySelectorAll('.btn-remove');

@@ -1,9 +1,42 @@
 import data from './data.js';
 
+// Select main elements
 const form = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 const bookSection = document.querySelector('.list');
+
+// Select sections
+const bookListSection = document.querySelector('.book-list');
+const addBookSection = document.querySelector('.add-book');
+const contactSection = document.querySelector('.contact');
+
+// Select nav anchor tags
+const listBtn = document.getElementById('listNav');
+const addBookBtn = document.getElementById('addBookNav');
+const contactBtn = document.getElementById('contactNav');
+
+// show bookList
+bookListSection.classList.toggle('show');
+
+// Add eventlisteners to nav buttons
+listBtn.addEventListener('click', () => {
+  bookListSection.classList.add('show');
+  addBookSection.classList.remove('show');
+  contactSection.classList.remove('show');
+});
+
+addBookBtn.addEventListener('click', () => {
+  addBookSection.classList.add('show');
+  bookListSection.classList.remove('show');
+  contactSection.classList.remove('show');
+});
+
+contactBtn.addEventListener('click', () => {
+  contactSection.classList.add('show');
+  addBookSection.classList.remove('show');
+  bookListSection.classList.remove('show');
+});
 
 class Book {
   constructor(title = '', author = '') {

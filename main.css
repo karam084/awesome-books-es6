@@ -97,6 +97,16 @@ hr {
   align-items: flex-end;
 }
 
+.contact {
+  border: none;
+}
+
+.descr {
+  margin: 35px 222px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
 footer {
   height: 2rem;
   margin-top: 100px;
@@ -105,4 +115,8 @@ footer {
   background-color: white;
   color: black;
   border: 2px solid black;
+}
+
+.copyright {
+  margin-left: 10px;
 }

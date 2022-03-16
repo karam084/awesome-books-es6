@@ -5,80 +5,96 @@ const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 const bookSection = document.querySelector('.books');
 
-const preserveBookData = () => {
-  const booksData = JSON.stringify(data);
-  window.localStorage.setItem('books', booksData);
-};
+class Book {
+  constructor(title = '', author = '') {
+    this.title = title;
+    this.author = author;
+    this.index = null;
+  }
 
-const addBook = (author, title) => {
-  data.push({ author, title });
-  preserveBookData();
-  return data.length - 1;
-};
+  #displayBackground(target, idx = this.index) {
+    if (idx % 2 === 0) {
+      target.style.backgroundColor = 'grey';
+    } else {
+      target.style.backgroundColor = 'white';
+    }
+  }
 
-const displayBook = (author, title, indx) => {
-  const bookCard = `
-    <div class="book-card">
-      <h2 class="book">${title}</h2>
-      <h3 class="author">${author}</h3>
-      <button class="btn-remove" id="btn-rem-${indx}" data-index="${indx}"
+  #preserveBookData() {
+    this.booksData = JSON.stringify(data);
+    window.localStorage.setItem('books', this.booksData);
+  }
+
+  saveBookValues() {
+    data.push({ author: this.author, title: this.title });
+    this.#preserveBookData();
+    this.index = data.length - 1;
+  }
+
+  displayBookValues() {
+    this.bookCard = document.createElement('div');
+    this.bookCard.classList.add('book-card');
+    this.bookCard.innerHTML = `
+      <h2 class="book">"${this.title} by ${this.author}"</h2>
+      <button class="btn-remove" id="btn-rem-${this.index}" data-index="${this.index}"
       type="button">Remove</button>
-      <hr />
-    </div>
   `;
-  bookSection.insertAdjacentHTML('beforeend', bookCard);
-  return `btn-rem-${indx}`;
-};
+    bookSection.appendChild(this.bookCard);
+    this.#displayBackground(this.bookCard);
+  }
 
-// Remove book function helper
-const removeBook = (event) => {
-  const bookIndex = event.target.dataset.index;
-  data.splice(bookIndex, 1);
-  preserveBookData();
-  event.target.parentElement.remove();
+  deleteBookValues(target) {
+    data.splice(this.bookIndex, 1);
+    this.#preserveBookData();
+    target.parentElement.remove();
+    // replace all button data values to reset their index
+    const remBookBtns = document.querySelectorAll('.btn-remove');
+    const allBooks = document.querySelectorAll('.book-card');
+    if (remBookBtns.length > 0) {
+      remBookBtns.forEach((btn, i) => {
+        btn.dataset.index = i;
+        this.#displayBackground(allBooks[i], i);
+      });
+    }
+  }
 
-  // replace all button data values to reset their index
-  const remBookBtns = document.querySelectorAll('.btn-remove');
-  if (remBookBtns.length > 0) {
-    remBookBtns.forEach((btn, i) => {
-      btn.dataset.index = i;
+  displayAllBooksValues() {
+    data.push(...JSON.parse(localStorage.getItem('books')));
+    data.forEach((storedBook) => {
+      this.book = new Book(storedBook.title, storedBook.author);
+      this.book.displayBookValues();
     });
-    // addListenerToRemBtns();
+    const allBooksElem = document.querySelectorAll('.book-card');
+    allBooksElem.forEach((bookElem, idx) => {
+      this.#displayBackground(bookElem, idx);
+    });
   }
-};
-
-// Add event listeners to remove buttons
-const addListenerToRemBtns = () => {
-  const remBookBtns = document.querySelectorAll('.btn-remove');
-  if (remBookBtns.length > 0) {
-    remBookBtns.forEach((btn) => btn.addEventListener('click', removeBook));
-  }
-};
+}
 
 // Event lister to add books and save them
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-  const title = bookTitle.value;
-  const author = bookAuthor.value;
-  const bookIndex = addBook(title, author);
-  const btnRemId = displayBook(title, author, bookIndex);
+  const book = new Book(bookTitle.value, bookAuthor.value);
+  book.saveBookValues();
+  book.displayBookValues();
   // Event listener to remove a book
-  document.getElementById(btnRemId).addEventListener('click', removeBook);
+  document
+    .getElementById(`btn-rem-${book.index}`)
+    .addEventListener('click', (e) => {
+      book.deleteBookValues(e.target);
+    });
 });
-
-// Helper to print all books on DOM
-const showAllBooks = () => {
-  data.push(...JSON.parse(localStorage.getItem('books')));
-  data.forEach((book, i) => {
-    const { title, author } = book;
-    displayBook(author, title, i);
-  });
-};
 
 // Event listener to display all saved books and add event listeners to each remove button
 window.addEventListener('DOMContentLoaded', () => {
   if (localStorage.getItem('books')) {
-    showAllBooks();
-    addListenerToRemBtns();
+    new Book().displayAllBooksValues();
+    const remBookBtns = document.querySelectorAll('.btn-remove');
+    remBookBtns.forEach((btn, i) => {
+      btn.dataset.index = i;
+      btn.addEventListener('click', (e) => {
+        new Book().deleteBookValues(e.target);
+      });
+    });
   }
 });

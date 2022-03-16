@@ -1,9 +1,49 @@
 import data from './data.js';
 
+// Select main elements
 const form = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
-const bookSection = document.querySelector('.books');
+const bookSection = document.querySelector('.list');
+const dateElem = document.getElementById('date');
+
+// Select sections
+const bookListSection = document.querySelector('.book-list');
+const addBookSection = document.querySelector('.add-book');
+const contactSection = document.querySelector('.contact');
+
+// Select nav anchor tags
+const listBtn = document.getElementById('listNav');
+const addBookBtn = document.getElementById('addBookNav');
+const contactBtn = document.getElementById('contactNav');
+
+// show bookList
+bookListSection.classList.toggle('show');
+
+// show date
+dateElem.innerText = new Date();
+setInterval(() => {
+  dateElem.innerText = new Date();
+}, 1000);
+
+// Add eventlisteners to nav buttons
+listBtn.addEventListener('click', () => {
+  bookListSection.classList.add('show');
+  addBookSection.classList.remove('show');
+  contactSection.classList.remove('show');
+});
+
+addBookBtn.addEventListener('click', () => {
+  addBookSection.classList.add('show');
+  bookListSection.classList.remove('show');
+  contactSection.classList.remove('show');
+});
+
+contactBtn.addEventListener('click', () => {
+  contactSection.classList.add('show');
+  addBookSection.classList.remove('show');
+  bookListSection.classList.remove('show');
+});
 
 class Book {
   constructor(title = '', author = '') {
@@ -14,7 +54,7 @@ class Book {
 
   #displayBackground(target, idx = this.index) {
     if (idx % 2 === 0) {
-      target.style.backgroundColor = 'grey';
+      target.style.backgroundColor = 'lightgray';
     } else {
       target.style.backgroundColor = 'white';
     }
@@ -35,7 +75,7 @@ class Book {
     this.bookCard = document.createElement('div');
     this.bookCard.classList.add('book-card');
     this.bookCard.innerHTML = `
-      <h2 class="book">"${this.title} by ${this.author}"</h2>
+      <h3 class="book">"${this.title} by ${this.author}"</h3>
       <button class="btn-remove" id="btn-rem-${this.index}" data-index="${this.index}"
       type="button">Remove</button>
   `;

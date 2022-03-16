@@ -8,9 +8,27 @@
     <title>Awesome Books</title>
   </head>
   <body>
-    <h1>All awesome books</h1>
-    <section class="books"></section>
-    <hr />
+    <header>
+      <nav>
+        <a id="logo" href="./index.html">Awesome books</a>
+        <ul class="menu">
+          <li class="navlist">
+            <a id="listNav" href="#" onclick="displayList()">List</a>
+          </li>
+          <li class="navlist">
+            <a id="addBookNav" href="#" onclick="displayAddBook()">Add new</a>
+          </li>
+          <li class="navlist end">
+            <a id="contactNav" href="#" onclick="displayContact()">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <div id="date">5pm eastern time</div>
+    </header>
+    <section class="book-list">
+      <h1>All awesome books</h1>
+      <article class="list"></article>
+    </section>
     <section class="add-book">
       <h2>Add a new book</h2>
       <form id="book-form" action="#">
@@ -31,6 +49,27 @@
         <input type="submit" id="submit" name="submit" value="Add" />
       </form>
     </section>
+    <section class="contact">
+      <div class="information">
+        <h2>Contact Information</h2>
+      </div>
+      <div class="info">
+        <p>
+          Do have any questions or just want to say "Hello"? <br />
+          you can reach out to us!
+        </p>
+      </div>
+      <div class="details">
+        <ul class="contact">
+          <li>Our e-mail:</li>
+          <li>Our phone:</li>
+          <li>Our address:</li>
+        </ul>
+      </div>
+    </section>
+    <footer>
+      <p class="copyright">Copyright</p>
+    </footer>
     <script src="./app.js" type="module"></script>
   </body>
 </html>

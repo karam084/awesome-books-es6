@@ -3,7 +3,7 @@ import data from './data.js';
 const form = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
-const bookSection = document.querySelector('.books');
+const bookSection = document.querySelector('.book-list');
 
 class Book {
   constructor(title = '', author = '') {

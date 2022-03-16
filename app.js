@@ -3,7 +3,7 @@ import data from './data.js';
 const form = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
-const bookSection = document.querySelector('.book-list');
+const bookSection = document.querySelector('.list');
 
 class Book {
   constructor(title = '', author = '') {
@@ -35,7 +35,7 @@ class Book {
     this.bookCard = document.createElement('div');
     this.bookCard.classList.add('book-card');
     this.bookCard.innerHTML = `
-      <h2 class="book">"${this.title} by ${this.author}"</h2>
+      <h3 class="book">"${this.title} by ${this.author}"</h3>
       <button class="btn-remove" id="btn-rem-${this.index}" data-index="${this.index}"
       type="button">Remove</button>
   `;

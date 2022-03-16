@@ -4,45 +4,59 @@
   box-sizing: border-box;
 }
 
+ul,
+a {
+  text-decoration: none;
+  list-style: none;
+}
+
 body {
   padding: 1rem;
 }
 
-.header {
-  margin: 6px 0 75px 0;
+section {
+  padding: 2rem 0;
+}
+
+header {
+  width: 100%;
   border: 2px solid black;
   color: black;
 }
 
+#logo {
+  flex-basis: 300px;
+}
+
+nav {
+  width: 100%;
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 16px;
-  overflow: hidden;
+  display: flex;
+  justify-content: flex-end;
   background-color: white;
-  height: 3em;
   text-align: center;
   width: 100%;
 }
 
-li {
-  display: inline;
-}
-
 li a {
-  padding: 0 22px;
+  padding: 0 5px;
   color: black;
   text-align: center;
   text-decoration: none;
 }
 
-.navbook {
-  position: absolute;
-  left: 0;
-}
-
 .navlist {
   border-right: 1px solid #bbb;
+}
+
+.navlist.end {
+  border-right: none;
 }
 
 h1 {
@@ -61,7 +75,11 @@ button,
   box-shadow: 2px 2px black;
 }
 
-.book-list {
+#submit {
+  width: 40px;
+}
+
+.list {
   border: 2px solid black;
 }
 
@@ -85,8 +103,11 @@ hr {
   padding-top: 1rem;
 }
 
-.add-book h2 {
+h1,
+h2 {
   text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 #title,

@@ -47,7 +47,7 @@ class Book {
 
   #displayBackground(target, idx = this.index) {
     if (idx % 2 === 0) {
-      target.style.backgroundColor = 'grey';
+      target.style.backgroundColor = 'lightgray';
     } else {
       target.style.backgroundColor = 'white';
     }

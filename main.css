@@ -97,14 +97,16 @@ hr {
   align-items: flex-end;
 }
 
-.contact {
-  border: none;
+.invisible {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.descr {
-  margin: 35px 222px;
-  font-size: 17px;
-  font-weight: 500;
+.contact {
+  list-style: circle;
+  border: none;
 }
 
 footer {

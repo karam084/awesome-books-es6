@@ -8,13 +8,18 @@ body {
   padding: 1rem;
 }
 
+.header {
+  margin: 6px 0 75px 0;
+  border: 1px solid;
+  color: black;
+}
+
 ul {
   list-style-type: none;
   margin: 0;
   padding: 16px;
   overflow: hidden;
   background-color: white;
-  border: 2px solid black;
   height: 3em;
   text-align: center;
   width: 100%;
@@ -102,6 +107,22 @@ hr {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.information {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.info {
+  margin-top: 90px;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.details {
+  display: flex;
+  margin-top: 71px;
 }
 
 .contact {

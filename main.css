@@ -11,10 +11,10 @@ body {
 ul {
   list-style-type: none;
   margin: 0;
-  padding: 10px;
+  padding: 16px;
   overflow: hidden;
   background-color: white;
-  border: 1px solid black;
+  border: 2px solid black;
   height: 3em;
   text-align: center;
   width: 100%;
@@ -25,10 +25,9 @@ li {
 }
 
 li a {
-  flex-direction: column;
+  padding: 0 22px;
   color: black;
   text-align: center;
-  padding: 14px 70px;
   text-decoration: none;
 }
 

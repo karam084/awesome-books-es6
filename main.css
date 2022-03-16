@@ -8,6 +8,39 @@ body {
   padding: 1rem;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  overflow: hidden;
+  background-color: white;
+  border: 1px solid black;
+  height: 3em;
+  text-align: center;
+  width: 100%;
+}
+
+li {
+  display: inline;
+}
+
+li a {
+  flex-direction: column;
+  color: black;
+  text-align: center;
+  padding: 14px 70px;
+  text-decoration: none;
+}
+
+.navbook {
+  position: absolute;
+  left: 0;
+}
+
+.navlist {
+  border-right: 1px solid #bbb;
+}
+
 h1 {
   text-align: center;
 }

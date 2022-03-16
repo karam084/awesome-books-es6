@@ -12,10 +12,11 @@ class Book {
     this.index = null;
   }
 
-  #displayBackground(target) {
-    console.log(this.index % 2 === 0);
-    if (this.index % 2 === 0) {
+  #displayBackground(target, idx = this.index) {
+    if (idx % 2 === 0) {
       target.style.backgroundColor = 'grey';
+    } else {
+      target.style.backgroundColor = 'white';
     }
   }
 
@@ -48,9 +49,11 @@ class Book {
     target.parentElement.remove();
     // replace all button data values to reset their index
     const remBookBtns = document.querySelectorAll('.btn-remove');
+    const allBooks = document.querySelectorAll('.book-card');
     if (remBookBtns.length > 0) {
       remBookBtns.forEach((btn, i) => {
         btn.dataset.index = i;
+        this.#displayBackground(allBooks[i], i);
       });
     }
   }
@@ -60,6 +63,10 @@ class Book {
     data.forEach((storedBook) => {
       this.book = new Book(storedBook.title, storedBook.author);
       this.book.displayBookValues();
+    });
+    const allBooksElem = document.querySelectorAll('.book-card');
+    allBooksElem.forEach((bookElem, idx) => {
+      this.#displayBackground(bookElem, idx);
     });
   }
 }

@@ -150,3 +150,27 @@ footer {
 .copyright {
   margin-left: 10px;
 }
+
+section.contact {
+  display: none;
+}
+
+section.add-book {
+  display: none;
+}
+
+section.book-list {
+  display: none;
+}
+
+section.contact.show {
+  display: block;
+}
+
+section.add-book.show {
+  display: block;
+}
+
+section.book-list.show {
+  display: block;
+}

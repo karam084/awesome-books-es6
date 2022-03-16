@@ -5,6 +5,7 @@ const form = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 const bookSection = document.querySelector('.list');
+const dateElem = document.getElementById('date');
 
 // Select sections
 const bookListSection = document.querySelector('.book-list');
@@ -18,6 +19,12 @@ const contactBtn = document.getElementById('contactNav');
 
 // show bookList
 bookListSection.classList.toggle('show');
+
+// show date
+dateElem.innerText = new Date();
+setInterval(() => {
+  dateElem.innerText = new Date();
+}, 1000);
 
 // Add eventlisteners to nav buttons
 listBtn.addEventListener('click', () => {

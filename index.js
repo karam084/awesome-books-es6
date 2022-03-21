@@ -1,5 +1,3 @@
-import data from './data.js';
-
 // Select main elements
 const form = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#title');

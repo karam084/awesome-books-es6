@@ -132,5 +132,5 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
   // show date
-  time.innerHTML = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
+  dateElem.innerHTML = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
 });

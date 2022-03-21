@@ -5,7 +5,7 @@ const form = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 const bookSection = document.querySelector('.list');
-const dateElem = document.getElementById('date');
+const dateElem = document.getElementById('time');
 
 // Select sections
 const bookListSection = document.querySelector('.book-list');
@@ -22,12 +22,13 @@ bookListSection.classList.toggle('show');
 
 // Add eventlisteners to nav buttons
 listBtn.addEventListener('click', () => {
-  addBookSection.classList.add('show');
+  bookListSection.classList.add('show');
   addBookSection.classList.remove('show');
   contactSection.classList.remove('show');
 });
 
 addBookBtn.addEventListener('click', () => {
+  addBookSection.classList.add('show');
   bookListSection.classList.remove('show');
   contactSection.classList.remove('show');
 });

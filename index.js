@@ -1,3 +1,5 @@
+import data from './modules/book.js';
+import { DateTime } from './node_modules/luxon/build/es6/luxon.js';
 // Select main elements
 const form = document.querySelector('#book-form');
 const bookTitle = document.querySelector('#title');
@@ -18,21 +20,14 @@ const contactBtn = document.getElementById('contactNav');
 // show bookList
 bookListSection.classList.toggle('show');
 
-// show date
-dateElem.innerText = new Date();
-setInterval(() => {
-  dateElem.innerText = new Date();
-}, 1000);
-
 // Add eventlisteners to nav buttons
 listBtn.addEventListener('click', () => {
-  bookListSection.classList.add('show');
+  addBookSection.classList.add('show');
   addBookSection.classList.remove('show');
   contactSection.classList.remove('show');
 });
 
 addBookBtn.addEventListener('click', () => {
-  addBookSection.classList.add('show');
   bookListSection.classList.remove('show');
   contactSection.classList.remove('show');
 });
@@ -135,4 +130,6 @@ window.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+  // show date
+  time.innerHTML = DateTime.now().toLocaleString(DateTime.DATETIME_MED);
 });

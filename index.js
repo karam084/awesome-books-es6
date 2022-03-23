@@ -14,8 +14,8 @@ bookListSection.classList.toggle('show');
 addNavListeners();
 addBooksListener();
 displayAllBooksListener();
+
 // show date
-//dateElem.innerHTML = DateTime.now().toLocaleString(DateTime.DATETIME_MED)
 
 DateTime.innerText = new Date();
 setInterval(() => {

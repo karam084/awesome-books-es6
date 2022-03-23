@@ -1,4 +1,4 @@
-import { DateTime } from './node_modules/luxon/src/luxon.js';
+import { DateTime } from './src/luxon.js';
 import addNavListeners from './modules/addNavListeners.js';
 import addBooksListener from './modules/addBooksListener.js';
 import displayAllBooksListener from './modules/displayAllBooksListener.js';

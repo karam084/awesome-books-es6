@@ -25,13 +25,14 @@ header {
   color: black;
 }
 
-#date {
+#time {
   text-align: right;
   padding: 0.3rem;
 }
 
 #logo {
   flex-basis: 300px;
+  color: black;
 }
 
 nav {

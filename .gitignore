@@ -1,3 +1,3 @@
 node_modules/
 .DS_Store
-!/luxon.js/*
+!/node_modules/luxon/src/luxon.js/

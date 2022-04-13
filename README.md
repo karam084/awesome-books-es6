@@ -1,7 +1,7 @@
 # Awesome Books
 
-> Simple app that adds books title and authors to a list.
-
+The app that adds books title and authors to a list, this project content of add and remove list of books and author. 
+The project developed by javascript to do more dynamic and more active.
 
 ## Built With
 

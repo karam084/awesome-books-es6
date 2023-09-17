@@ -9,6 +9,7 @@ The project developed by javascript to do more dynamic and more active.
 - HTML
 - Javascript
 - Git
+- ECMAScript 
 ## Live Demo (https://karam084.github.io/awesome-books-es6/)
 
 To get a local copy up and running follow these simple example steps.
